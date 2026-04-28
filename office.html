@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Office – Seventh.Lab</title>
+  <meta name="description" content="Lokasi kantor dan workshop Seventh.Lab." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #e00000;
+      --red-dark: #9b0000;
+      --bg-dark: #141414;
+      --bg-mid: #1c1c1c;
+      --text-white: #ffffff;
+      --text-muted: #c0c0c0;
+      --nav-height: 60px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      overflow: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+
+    .nav-brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.3px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 2px;
+      background: var(--red);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--red);
+      border-radius: 2px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-hamburger:hover span:nth-child(2) {
+      transform: scaleX(0.7);
+      transform-origin: right;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      width: 100%;
+      height: 100vh;
+      padding-top: var(--nav-height);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top: Gallery Row */
+    .office-gallery {
+      display: flex;
+      height: 48%;
+      width: 100%;
+      gap: 2px;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .gallery-item {
+      flex: 1;
+      position: relative;
+      background: #222;
+      transition: flex 0.5s ease, opacity 0.5s ease;
+      /*
+        background: url('...') center/cover no-repeat;
+      */
+      overflow: hidden;
+      animation: slideDown 0.8s ease both;
+    }
+
+    .gallery-item:nth-child(2) { animation-delay: 0.15s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+    }
+
+    .gallery-item:hover {
+      flex: 1.2;
+    }
+
+    .placeholder-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.08);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    /* Bottom: Info Section */
+    .office-info {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      padding: 60px 72px 60px 64px;
+      align-items: center;
+      gap: 40px;
+      animation: fadeInUp 0.8s ease both 0.5s;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .office-heading-col h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .office-heading-line {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+      border-radius: 2px;
+    }
+
+    .info-col-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 14px;
+      letter-spacing: 0.2px;
+    }
+
+    .info-col-text {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── MENU OVERLAY ── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.98);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .menu-overlay.active { opacity: 1; visibility: visible; }
+    .menu-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 32px; color: var(--red); cursor: pointer; font-weight: 300;
+    }
+
+    .menu-list { list-style: none; text-align: center; }
+    .menu-list li { margin: 20px 0; overflow: hidden; }
+    .menu-list a {
+      text-decoration: none;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      transition: transform 0.3s ease, color 0.3s ease;
+      transform: translateY(100%);
+    }
+
+    .menu-overlay.active .menu-list a { transform: translateY(0); }
+    .menu-list a:hover { color: var(--red); transform: skewX(-5deg) scale(1.05); }
+
+    .menu-sub-links {
+      margin-top: 40px; display: flex; gap: 30px; opacity: 0; transition: opacity 0.5s ease 0.4s;
+    }
+    .menu-overlay.active .menu-sub-links { opacity: 1; }
+    .menu-sub-links a {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none;
+      letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s ease;
+    }
+    .menu-sub-links a:hover { color: #fff; }
+
+    /* ── PAGE INDICATOR ── */
+    .page-indicator {
+      position: fixed;
+      bottom: 24px; right: 32px;
+      z-index: 10;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+    .page-indicator .separator { margin: 0 6px; color: rgba(255,255,255,0.25); }
+    .page-indicator .page-num { color: rgba(255,255,255,0.8); font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .office-info { grid-template-columns: 1fr; gap: 30px; padding: 40px; }
+      .office-gallery { height: 35%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
+        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
+      </svg>
+      <span class="nav-brand-text">Seventh.Lab</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="service.html">Service</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ── PAGE ── -->
+  <main class="page">
+    <!-- Top Gallery -->
+    <div class="office-gallery">
+      <div class="gallery-item"><span class="placeholder-text">Office Image 01</span></div>
+      <div class="gallery-item"><span class="placeholder-text">Office Image 02</span></div>
+      <div class="gallery-item"><span class="placeholder-text">Office Image 03</span></div>
+    </div>
+
+    <!-- Bottom Info -->
+    <div class="office-info">
+      <div class="office-heading-col">
+        <h1>Our Office</h1>
+        <div class="office-heading-line"></div>
+      </div>
+
+      <div class="info-col">
+        <p class="info-col-label">Main Office</p>
+        <p class="info-col-text">
+          Bandung, Indonesia<br />
+          Design, development, and technical execution workspace.
+        </p>
+      </div>
+
+      <div class="info-col">
+        <p class="info-col-label">Development Office</p>
+        <p class="info-col-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-close" id="menu-close">&times;</div>
+    <ul class="menu-list">
+      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-sub-links">
+      <a href="team.html">Our Team</a>
+      <a href="office.html" style="color:#fff;">Office</a>
+      <a href="vision.html">Vision & Mission</a>
+    </div>
+  </div>
+
+  <!-- Page indicator -->
+  <div class="page-indicator" aria-label="Page 04">
+    Page<span class="separator">|</span><span class="page-num">04</span>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    hamburger.addEventListener('click', () => menuOverlay.classList.add('active'));
+    menuClose.addEventListener('click', () => menuOverlay.classList.remove('active'));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') menuOverlay.classList.remove('active'); });
+  </script>
+
+</body>
+</html>

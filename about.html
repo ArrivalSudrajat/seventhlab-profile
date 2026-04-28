@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Seventh.Lab</title>
+  <meta name="description" content="Tentang Seventh.Lab – Digital agency yang berfokus pada pengembangan website modern, profesional, dan fungsional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #e00000;
+      --red-dark: #9b0000;
+      --bg-dark: #141414;
+      --bg-mid: #1c1c1c;
+      --bg-panel: #222222;
+      --text-white: #ffffff;
+      --text-muted: #c0c0c0;
+      --text-dim: #888888;
+      --nav-height: 60px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      overflow: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.3px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 2px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-hamburger:hover span:nth-child(2) {
+      transform: scaleX(0.7);
+      transform-origin: right;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      width: 100%;
+      height: 100vh;
+      padding-top: var(--nav-height);
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-dark);
+      overflow: hidden;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .about-left {
+      position: relative;
+      width: 46%;
+      flex-shrink: 0;
+      background: var(--bg-mid);
+      overflow: hidden;
+    }
+
+    /* Red accent bar — top-left decorative strip */
+    .red-accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 68px;
+      height: 38%;
+      background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    /* Image slot — fill this with assets/images/about.jpg when ready */
+    .about-image-slot {
+      position: absolute;
+      inset: 0;
+      /* 
+        To add an image later, replace the background below with:
+        background: url('assets/images/about.jpg') center/cover no-repeat;
+      */
+      background: linear-gradient(135deg, #181818 0%, #232323 50%, #1a1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    /* Subtle grid overlay on the image slot */
+    .about-image-slot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          transparent 39px,
+          rgba(255,255,255,0.02) 39px,
+          rgba(255,255,255,0.02) 40px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 39px,
+          rgba(255,255,255,0.02) 39px,
+          rgba(255,255,255,0.02) 40px
+        );
+    }
+
+    /* Image placeholder label */
+    .image-placeholder-label {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: rgba(255,255,255,0.12);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .image-placeholder-label .icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.5;
+    }
+
+    .image-placeholder-label p {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Dark gradient overlay on the right edge of the left panel */
+    .about-left::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(20,20,20,0.7));
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* ── RIGHT COLUMN ── */
+    .about-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 56px 72px 56px 64px;
+      background: var(--bg-dark);
+      overflow: hidden;
+      animation: slideInRight 0.8s ease both;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* "About Us" heading */
+    .about-heading {
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    /* Red underline below heading */
+    .about-heading-line {
+      width: 110px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+      margin-bottom: 36px;
+      border-radius: 2px;
+    }
+
+    /* Intro paragraph */
+    .about-intro {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    /* Divider between sections */
+    .about-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 28px;
+    }
+
+    /* "About Company" sub-section */
+    .about-company-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+      text-transform: capitalize;
+    }
+
+    .about-company-text {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    /* ── PAGE INDICATOR ── */
+    .page-indicator {
+      position: fixed;
+      bottom: 24px;
+      right: 32px;
+      z-index: 10;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .page-indicator .separator {
+      margin: 0 6px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .page-indicator .page-num {
+      color: rgba(255,255,255,0.8);
+      font-weight: 700;
+    }
+
+    /* ── MENU OVERLAY ── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.98);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 32px;
+      color: var(--red);
+      cursor: pointer;
+      font-weight: 300;
+    }
+
+    .menu-list {
+      list-style: none;
+      text-align: center;
+    }
+
+    .menu-list li {
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .menu-list a {
+      text-decoration: none;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      transition: transform 0.3s ease, color 0.3s ease;
+      transform: translateY(100%);
+    }
+
+    .menu-overlay.active .menu-list a {
+      transform: translateY(0);
+    }
+
+    .menu-list a:hover {
+      color: var(--red);
+      transform: skewX(-5deg) scale(1.05);
+    }
+
+    .menu-sub-links {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.4s;
+    }
+
+    .menu-overlay.active .menu-sub-links {
+      opacity: 1;
+    }
+
+    .menu-sub-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .menu-sub-links a:hover {
+      color: #fff;
+    }
+
+    /* ── DISCOVERY BUTTONS ── */
+    .discovery-links {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-discovery {
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-discovery:hover {
+      border-color: var(--red);
+      color: #fff;
+      background: rgba(224,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <a href="index.html" class="nav-brand" id="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
+        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
+      </svg>
+      <span class="nav-brand-text">Seventh.Lab</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="portfolio.html" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="service.html" id="nav-service">Service</a></li>
+      <li><a href="about.html" id="nav-about" class="active">About Me</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ── PAGE ── -->
+  <main class="page">
+
+    <!-- LEFT: Image area -->
+    <div class="about-left" id="about-image-wrapper">
+      <!-- Red decorative bar -->
+      <div class="red-accent-bar"></div>
+
+      <!-- 
+        IMAGE SLOT
+        Ganti komentar di bawah dengan tag <img> saat foto sudah tersedia:
+        <img src="assets/images/about.jpg" alt="About Seventh.Lab" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;" />
+      -->
+      <div class="about-image-slot" id="about-image-slot">
+        <div class="image-placeholder-label">
+          <span class="icon">🖼️</span>
+          <p>assets/images/about.jpg</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="about-right" id="about-content">
+      <h1 class="about-heading">About Us</h1>
+      <div class="about-heading-line"></div>
+
+      <p class="about-intro">
+        Seventh.lab adalah digital agency yang berfokus pada pengembangan website modern,
+        profesional, dan fungsional untuk membantu bisnis membangun citra digital yang lebih kuat.<br /><br />
+        Kami membantu brand, UMKM, startup, dan perusahaan menghadirkan solusi digital
+        yang tidak hanya menarik secara visual, tetapi juga efektif secara bisnis.
+      </p>
+
+      <div class="about-divider"></div>
+
+      <p class="about-company-label">About Company</p>
+      <p class="about-company-text">
+        Seventh.lab hadir sebagai partner digital untuk bisnis yang ingin berkembang di era
+        modern melalui website yang cepat, responsif, dan dirancang sesuai kebutuhan.<br /><br />
+        Kami percaya bahwa website bukan sekadar tampilan, tetapi fondasi digital untuk
+        membangun kepercayaan dan meningkatkan value bisnis.
+      </p>
+
+      <div class="discovery-links">
+        <a href="team.html" class="btn-discovery">Meet Team</a>
+        <a href="vision.html" class="btn-discovery">Our Vision</a>
+        <a href="office.html" class="btn-discovery">Office</a>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- Page indicator -->
+  <div class="page-indicator" id="page-indicator" aria-label="Page 02">
+    Page<span class="separator">|</span><span class="page-num">02</span>
+  </div>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-close" id="menu-close">&times;</div>
+    <ul class="menu-list">
+      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-sub-links">
+      <a href="team.html">Our Team</a>
+      <a href="office.html">Office</a>
+      <a href="vision.html">Vision & Mission</a>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    hamburger.addEventListener('click', () => {
+      menuOverlay.classList.add('active');
+    });
+
+    menuClose.addEventListener('click', () => {
+      menuOverlay.classList.remove('active');
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') menuOverlay.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>

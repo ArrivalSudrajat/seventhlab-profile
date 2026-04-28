@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Mission – Seventh.Lab</title>
+  <meta name="description" content="Misi Seventh.Lab dalam memberdayakan bisnis secara digital." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --red: #e00000;
+      --red-dark: #9b0000;
+      --bg-dark: #141414;
+      --bg-mid: #1c1c1c;
+      --text-white: #ffffff;
+      --text-muted: #c0c0c0;
+      --nav-height: 60px;
+    }
+    html, body { height: 100%; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-white); overflow: hidden; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 26px; height: 26px; }
+    .nav-brand-text { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+    .nav-links { display: flex; align-items: center; gap: 48px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 0; height: 2px; background: var(--red); transition: width 0.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a.active::after, .nav-links a:hover::after { width: 100%; }
+    .nav-hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--red); border-radius: 2px; }
+
+    /* ── PAGE LAYOUT ── */
+    .page { width: 100%; height: 100vh; padding-top: var(--nav-height); display: flex; align-items: stretch; overflow: hidden; }
+
+    /* ── LEFT: Content ── */
+    .mission-left { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 80px 60px 64px; background: var(--bg-dark); animation: slideInLeft 0.8s ease both; }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+
+    .mission-heading { font-size: clamp(38px, 6vw, 68px); font-weight: 800; color: #fff; letter-spacing: -2px; margin-bottom: 20px; }
+    .mission-heading-line { width: 220px; height: 3px; background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%); border-radius: 2px; margin-bottom: 64px; }
+
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 40px; }
+    .mission-item { display: flex; align-items: flex-start; gap: 20px; }
+    .mission-num { width: 34px; height: 34px; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+    .mission-text-col { display: flex; flex-direction: column; gap: 6px; }
+    .mission-label { font-size: 13px; font-weight: 700; color: var(--red); letter-spacing: 0.5px; }
+    .mission-desc { font-size: 13px; line-height: 1.65; color: var(--text-muted); max-width: 200px; }
+
+    /* ── RIGHT: Image ── */
+    .mission-right { width: 40%; position: relative; background: #000; overflow: hidden; }
+    .mission-img { position: absolute; inset: 0; background: #222; animation: slideInRight 0.8s ease both; }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    .mission-img::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6) 100%); z-index: 1; }
+
+    /* Large red bar overlay */
+    .mission-right::after { content: ''; position: absolute; top: 0; right: 0; width: 68px; height: 44%; background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%); z-index: 2; opacity: 0.95; }
+
+    .placeholder-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.06); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+
+    /* ── MENU OVERLAY ── */
+    .menu-overlay { position: fixed; inset: 0; background: rgba(10, 10, 10, 0.98); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+    .menu-overlay.active { opacity: 1; visibility: visible; }
+    .menu-close { position: absolute; top: 24px; right: 32px; font-size: 32px; color: var(--red); cursor: pointer; }
+    .menu-list { list-style: none; text-align: center; }
+    .menu-list li { margin: 18px 0; }
+    .menu-list a { text-decoration: none; font-size: 48px; font-weight: 800; color: #fff; transition: color 0.3s ease; }
+    .menu-list a:hover { color: var(--red); }
+    .menu-sub-links { margin-top: 40px; display: flex; gap: 30px; opacity: 0; transition: opacity 0.5s ease 0.4s; }
+    .menu-overlay.active .menu-sub-links { opacity: 1; }
+    .menu-sub-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; text-transform: uppercase; }
+
+    /* ── PAGE INDICATOR ── */
+    .page-indicator { position: fixed; bottom: 24px; right: 32px; z-index: 10; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); display: flex; align-items: center; }
+    .page-indicator .separator { margin: 0 6px; color: rgba(255,255,255,0.25); }
+    .page-indicator .page-num { color: rgba(255,255,255,0.8); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/><polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/></svg>
+      <span class="nav-brand-text">Seventh.Lab</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="service.html">Service</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <main class="page">
+    <div class="mission-left">
+      <h1 class="mission-heading">Our Mission</h1>
+      <div class="mission-heading-line"></div>
+      <div class="mission-grid">
+        <div class="mission-item">
+          <div class="mission-num">01</div>
+          <div class="mission-text-col">
+            <span class="mission-label">Mission</span>
+            <p class="mission-desc">Memberikan solusi website profesional yang sesuai kebutuhan bisnis.</p>
+          </div>
+        </div>
+        <div class="mission-item">
+          <div class="mission-num">02</div>
+          <div class="mission-text-col">
+            <span class="mission-label">Mission</span>
+            <p class="mission-desc">Menciptakan desain digital yang modern, fungsional, dan berorientasi pada user experience.</p>
+          </div>
+        </div>
+        <div class="mission-item">
+          <div class="mission-num">03</div>
+          <div class="mission-text-col">
+            <span class="mission-label">Mission</span>
+            <p class="mission-desc">Membantu bisnis meningkatkan kredibilitas dan performa digital.</p>
+          </div>
+        </div>
+        <div class="mission-item">
+          <div class="mission-num">04</div>
+          <div class="mission-text-col">
+            <span class="mission-label">Mission</span>
+            <p class="mission-desc">Menjadi partner digital yang adaptif, inovatif, dan terpercaya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mission-right">
+      <div class="mission-img"><span class="placeholder-text">Mission Image</span></div>
+    </div>
+  </main>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-close" id="menu-close">&times;</div>
+    <ul class="menu-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-sub-links">
+      <a href="team.html">Our Team</a>
+      <a href="office.html">Office</a>
+      <a href="vision.html" style="color:#fff;">Vision & Mission</a>
+    </div>
+  </div>
+
+  <div class="page-indicator">Page<span class="separator">|</span><span class="page-num">06</span></div>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+    hamburger.addEventListener('click', () => menuOverlay.classList.add('active'));
+    menuClose.addEventListener('click', () => menuOverlay.classList.remove('active'));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') menuOverlay.classList.remove('active'); });
+  </script>
+</body>
+</html>

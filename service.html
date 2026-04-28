@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Service – Seventh.Lab</title>
+  <meta name="description" content="Layanan Seventh.Lab – Website Development, UI/UX Design, Business Website Solutions, dan Maintenance & Support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #e00000;
+      --red-dark: #9b0000;
+      --bg-dark: #141414;
+      --bg-mid: #1c1c1c;
+      --text-white: #ffffff;
+      --text-muted: #c0c0c0;
+      --nav-height: 60px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      overflow: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+
+    .nav-brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.3px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 2px;
+      background: var(--red);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--red);
+      border-radius: 2px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-hamburger:hover span:nth-child(2) {
+      transform: scaleX(0.7);
+      transform-origin: right;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      width: 100%;
+      height: 100vh;
+      padding-top: var(--nav-height);
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    /* ── LEFT: Content ── */
+    .service-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 52px 72px 52px 64px;
+      animation: fadeInLeft 0.8s ease both;
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .service-heading {
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .service-heading-line {
+      width: 180px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+      border-radius: 2px;
+      margin-bottom: 48px;
+    }
+
+    /* 2×2 service grid */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 48px;
+    }
+
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      padding-left: 0;
+      animation: fadeInUp 0.7s ease both;
+    }
+
+    .service-item:nth-child(1) { animation-delay: 0.05s; }
+    .service-item:nth-child(2) { animation-delay: 0.12s; }
+    .service-item:nth-child(3) { animation-delay: 0.19s; }
+    .service-item:nth-child(4) { animation-delay: 0.26s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .service-item-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+    }
+
+    .service-item-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 230px;
+    }
+
+    /* ── RIGHT: Image area ── */
+    .service-right {
+      position: relative;
+      width: 42%;
+      flex-shrink: 0;
+      background: var(--bg-mid);
+      overflow: hidden;
+    }
+
+    /* Red accent bar top */
+    .red-accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 68px;
+      height: 36%;
+      background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    /* Image slot */
+    .service-image-slot {
+      position: absolute;
+      inset: 0;
+      /*
+        Ganti background di bawah dengan:
+        background: url('assets/images/service.jpg') center/cover no-repeat;
+        saat gambar sudah tersedia
+      */
+      background: linear-gradient(135deg, #181818 0%, #242424 60%, #1c1c1c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .service-image-slot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px, transparent 39px,
+          rgba(255,255,255,0.02) 39px, rgba(255,255,255,0.02) 40px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px, transparent 39px,
+          rgba(255,255,255,0.02) 39px, rgba(255,255,255,0.02) 40px
+        );
+    }
+
+    /* Dark edge bleed left */
+    .service-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 50px; height: 100%;
+      background: linear-gradient(90deg, rgba(20,20,20,0.65), transparent);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .image-placeholder-label {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: rgba(255,255,255,0.12);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .image-placeholder-label .icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.5;
+    }
+
+    .image-placeholder-label p {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── PAGE INDICATOR ── */
+    .page-indicator {
+      position: fixed;
+      bottom: 24px; right: 32px;
+      z-index: 10;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .page-indicator .separator {
+      margin: 0 6px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .page-indicator .page-num {
+      color: rgba(255,255,255,0.8);
+      font-weight: 700;
+    }
+
+    /* ── MENU OVERLAY ── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.98);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 32px;
+      color: var(--red);
+      cursor: pointer;
+      font-weight: 300;
+    }
+
+    .menu-list {
+      list-style: none;
+      text-align: center;
+    }
+
+    .menu-list li {
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .menu-list a {
+      text-decoration: none;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      transition: transform 0.3s ease, color 0.3s ease;
+      transform: translateY(100%);
+    }
+
+    .menu-overlay.active .menu-list a {
+      transform: translateY(0);
+    }
+
+    .menu-list a:hover {
+      color: var(--red);
+      transform: skewX(-5deg) scale(1.05);
+    }
+
+    .menu-sub-links {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.4s;
+    }
+
+    .menu-overlay.active .menu-sub-links {
+      opacity: 1;
+    }
+
+    .menu-sub-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .menu-sub-links a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <a href="index.html" class="nav-brand" id="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
+        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
+      </svg>
+      <span class="nav-brand-text">Seventh.Lab</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="portfolio.html" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="service.html" id="nav-service" class="active">Service</a></li>
+      <li><a href="about.html" id="nav-about">About Me</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ── PAGE ── -->
+  <main class="page">
+
+    <!-- LEFT: Service content -->
+    <div class="service-left" id="service-content">
+      <h1 class="service-heading">Our Service</h1>
+      <div class="service-heading-line"></div>
+
+      <div class="service-grid" id="service-grid">
+
+        <div class="service-item" id="service-web-dev">
+          <span class="service-item-title">Website Development</span>
+          <p class="service-item-desc">
+            Website profesional, modern, dan responsive untuk bisnis Anda.
+          </p>
+        </div>
+
+        <div class="service-item" id="service-uiux">
+          <span class="service-item-title">UI/UX Design</span>
+          <p class="service-item-desc">
+            Desain interface yang clean, user-friendly, dan conversion-focused.
+          </p>
+        </div>
+
+        <div class="service-item" id="service-biz">
+          <span class="service-item-title">Business Website<br/>Solutions</span>
+          <p class="service-item-desc">
+            Company profile, booking system, landing page, hingga custom website system.
+          </p>
+        </div>
+
+        <div class="service-item" id="service-maintenance">
+          <span class="service-item-title">Maintenance &amp; Support</span>
+          <p class="service-item-desc">
+            Perawatan, update, optimasi, dan support website setelah project selesai.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Image area -->
+    <div class="service-right" id="service-image-wrapper">
+      <div class="red-accent-bar"></div>
+
+      <!--
+        IMAGE SLOT
+        Saat foto tersedia, ganti isi div ini dengan:
+        <img src="assets/images/service.jpg" alt="Our Service"
+             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;" />
+      -->
+      <div class="service-image-slot" id="service-image-slot">
+        <div class="image-placeholder-label">
+          <span class="icon">🖼️</span>
+          <p>assets/images/service.jpg</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Page indicator -->
+  <div class="page-indicator" id="page-indicator" aria-label="Page 03">
+    Page<span class="separator">|</span><span class="page-num">03</span>
+  </div>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-close" id="menu-close">&times;</div>
+    <ul class="menu-list">
+      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-sub-links">
+      <a href="team.html">Our Team</a>
+      <a href="office.html">Office</a>
+      <a href="vision.html">Vision & Mission</a>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    hamburger.addEventListener('click', () => {
+      menuOverlay.classList.add('active');
+    });
+
+    menuClose.addEventListener('click', () => {
+      menuOverlay.classList.remove('active');
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') menuOverlay.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
