@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Service – Seventh.Lab</title>
-  <meta name="description" content="Layanan Seventh.Lab – Website Development, UI/UX Design, Business Website Solutions, dan Maintenance & Support." />
+  <link rel="icon" type="image/png" href="assets/images/logo1.png" />
+  <meta name="description"
+    content="Layanan Seventh.Lab – Website Development, UI/UX Design, Business Website Solutions, dan Maintenance & Support." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -25,7 +31,8 @@
       --nav-height: 60px;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
@@ -36,32 +43,35 @@
     /* ── NAVBAR ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
-      background: rgba(10,10,10,0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
 
-    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+    }
 
-    .nav-brand-text {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-white);
-      letter-spacing: 0.3px;
+    .nav-brand:hover .nav-logo-img {
+      opacity: 0.85;
     }
 
     .nav-links {
@@ -75,7 +85,7 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       letter-spacing: 0.3px;
       transition: color 0.2s ease;
       position: relative;
@@ -84,17 +94,23 @@
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0; bottom: -3px;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
       background: var(--red);
       transition: width 0.25s ease;
     }
 
     .nav-links a:hover,
-    .nav-links a.active { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+    }
 
     .nav-links a.active::after,
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-hamburger {
       display: flex;
@@ -106,7 +122,8 @@
 
     .nav-hamburger span {
       display: block;
-      width: 22px; height: 2px;
+      width: 22px;
+      height: 2px;
       background: var(--red);
       border-radius: 2px;
       transition: transform 0.2s ease;
@@ -138,8 +155,15 @@
     }
 
     @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .service-heading {
@@ -175,14 +199,32 @@
       animation: fadeInUp 0.7s ease both;
     }
 
-    .service-item:nth-child(1) { animation-delay: 0.05s; }
-    .service-item:nth-child(2) { animation-delay: 0.12s; }
-    .service-item:nth-child(3) { animation-delay: 0.19s; }
-    .service-item:nth-child(4) { animation-delay: 0.26s; }
+    .service-item:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .service-item:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .service-item:nth-child(3) {
+      animation-delay: 0.19s;
+    }
+
+    .service-item:nth-child(4) {
+      animation-delay: 0.26s;
+    }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .service-item-title {
@@ -225,12 +267,7 @@
     .service-image-slot {
       position: absolute;
       inset: 0;
-      /*
-        Ganti background di bawah dengan:
-        background: url('assets/images/service.jpg') center/cover no-repeat;
-        saat gambar sudah tersedia
-      */
-      background: linear-gradient(135deg, #181818 0%, #242424 60%, #1c1c1c 100%);
+      background: url('assets/images/service1.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -242,25 +279,23 @@
       position: absolute;
       inset: 0;
       background-image:
-        repeating-linear-gradient(
-          0deg,
+        repeating-linear-gradient(0deg,
           transparent 0px, transparent 39px,
-          rgba(255,255,255,0.02) 39px, rgba(255,255,255,0.02) 40px
-        ),
-        repeating-linear-gradient(
-          90deg,
+          rgba(255, 255, 255, 0.02) 39px, rgba(255, 255, 255, 0.02) 40px),
+        repeating-linear-gradient(90deg,
           transparent 0px, transparent 39px,
-          rgba(255,255,255,0.02) 39px, rgba(255,255,255,0.02) 40px
-        );
+          rgba(255, 255, 255, 0.02) 39px, rgba(255, 255, 255, 0.02) 40px);
     }
 
     /* Dark edge bleed left */
     .service-right::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 50px; height: 100%;
-      background: linear-gradient(90deg, rgba(20,20,20,0.65), transparent);
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(20, 20, 20, 0.65), transparent);
       z-index: 4;
       pointer-events: none;
     }
@@ -269,7 +304,7 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      color: rgba(255,255,255,0.12);
+      color: rgba(255, 255, 255, 0.12);
       pointer-events: none;
       user-select: none;
     }
@@ -290,11 +325,12 @@
     /* ── PAGE INDICATOR ── */
     .page-indicator {
       position: fixed;
-      bottom: 24px; right: 32px;
+      bottom: 24px;
+      right: 32px;
       z-index: 10;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
       letter-spacing: 1px;
       display: flex;
       align-items: center;
@@ -302,11 +338,11 @@
 
     .page-indicator .separator {
       margin: 0 6px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255, 255, 255, 0.25);
     }
 
     .page-indicator .page-num {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 700;
     }
 
@@ -384,7 +420,7 @@
     .menu-sub-links a {
       font-size: 14px;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -394,26 +430,67 @@
     .menu-sub-links a:hover {
       color: #fff;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .service-left,
+      .service-right {
+        width: 100%;
+        height: auto;
+      }
+
+      .page {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .service-right {
+        height: 40vh;
+        flex-shrink: 0;
+      }
+
+      .service-left {
+        padding: 32px 24px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .service-heading {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      .menu-list a {
+        font-size: 32px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ── NAVBAR ── -->
   <nav>
-    <a href="index.html" class="nav-brand" id="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
-        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
-      </svg>
-      <span class="nav-brand-text">Seventh.Lab</span>
+    <a href="/" class="nav-brand" id="nav-brand">
+      <img src="assets/images/logo.png" alt="Seventh.Lab" class="nav-logo-img">
     </a>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="portfolio.html" id="nav-portfolio">Portfolio</a></li>
-      <li><a href="service.html" id="nav-service" class="active">Service</a></li>
-      <li><a href="about.html" id="nav-about">About Me</a></li>
-      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+      <li><a href="/" id="nav-home">Home</a></li>
+      <li><a href="portfolio" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="service" id="nav-service" class="active">Service</a></li>
+      <li><a href="about" id="nav-about">About Me</a></li>
+      <li><a href="contact" id="nav-contact">Contact</a></li>
     </ul>
 
     <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
@@ -448,7 +525,7 @@
         </div>
 
         <div class="service-item" id="service-biz">
-          <span class="service-item-title">Business Website<br/>Solutions</span>
+          <span class="service-item-title">Business Website<br />Solutions</span>
           <p class="service-item-desc">
             Company profile, booking system, landing page, hingga custom website system.
           </p>
@@ -484,25 +561,20 @@
 
   </main>
 
-  <!-- Page indicator -->
-  <div class="page-indicator" id="page-indicator" aria-label="Page 03">
-    Page<span class="separator">|</span><span class="page-num">03</span>
-  </div>
-
   <!-- Menu Overlay -->
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-close" id="menu-close">&times;</div>
     <ul class="menu-list">
-      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
-      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
-      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
-      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
-      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+      <li style="transition-delay: 0.1s;"><a href="/">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact">Contact</a></li>
     </ul>
     <div class="menu-sub-links">
-      <a href="team.html">Our Team</a>
-      <a href="office.html">Office</a>
-      <a href="vision.html">Vision & Mission</a>
+      <a href="team">Our Team</a>
+      <a href="office">Office</a>
+      <a href="vision">Vision & Mission</a>
     </div>
   </div>
 
@@ -526,4 +598,5 @@
   </script>
 
 </body>
+
 </html>

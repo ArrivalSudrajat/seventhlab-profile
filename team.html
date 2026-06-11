@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet Our Team – Seventh.Lab</title>
+  <link rel="icon" type="image/png" href="assets/images/logo1.png" />
   <meta name="description" content="Kenali tim ahli di balik Seventh.Lab." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -26,7 +31,8 @@
       --nav-height: 60px;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
@@ -37,32 +43,35 @@
     /* ── NAVBAR ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
-      background: rgba(10,10,10,0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
 
-    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+    }
 
-    .nav-brand-text {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-white);
-      letter-spacing: 0.3px;
+    .nav-brand:hover .nav-logo-img {
+      opacity: 0.85;
     }
 
     .nav-links {
@@ -76,7 +85,7 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       letter-spacing: 0.3px;
       transition: color 0.2s ease;
       position: relative;
@@ -85,17 +94,23 @@
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0; bottom: -3px;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
       background: var(--red);
       transition: width 0.25s ease;
     }
 
     .nav-links a:hover,
-    .nav-links a.active { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+    }
 
     .nav-links a.active::after,
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-hamburger {
       display: flex;
@@ -107,7 +122,8 @@
 
     .nav-hamburger span {
       display: block;
-      width: 22px; height: 2px;
+      width: 22px;
+      height: 2px;
       background: var(--red);
       border-radius: 2px;
       transition: transform 0.2s ease;
@@ -163,11 +179,20 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .team-card:nth-child(2) { animation-delay: 0.2s; }
+    .team-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
 
     .team-photo-wrapper {
       position: relative;
@@ -208,7 +233,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
     }
 
     .placeholder-icon {
@@ -267,7 +292,10 @@
       text-align: center;
     }
 
-    .menu-list li { margin: 20px 0; overflow: hidden; }
+    .menu-list li {
+      margin: 20px 0;
+      overflow: hidden;
+    }
 
     .menu-list a {
       text-decoration: none;
@@ -279,9 +307,14 @@
       transform: translateY(100%);
     }
 
-    .menu-overlay.active .menu-list a { transform: translateY(0); }
+    .menu-overlay.active .menu-list a {
+      transform: translateY(0);
+    }
 
-    .menu-list a:hover { color: var(--red); transform: skewX(-5deg) scale(1.05); }
+    .menu-list a:hover {
+      color: var(--red);
+      transform: skewX(-5deg) scale(1.05);
+    }
 
     .menu-sub-links {
       margin-top: 40px;
@@ -291,59 +324,90 @@
       transition: opacity 0.5s ease 0.4s;
     }
 
-    .menu-overlay.active .menu-sub-links { opacity: 1; }
+    .menu-overlay.active .menu-sub-links {
+      opacity: 1;
+    }
 
     .menu-sub-links a {
       font-size: 14px;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: color 0.2s ease;
     }
 
-    .menu-sub-links a:hover { color: #fff; }
+    .menu-sub-links a:hover {
+      color: #fff;
+    }
 
     /* ── PAGE INDICATOR ── */
     .page-indicator {
       position: fixed;
-      bottom: 24px; right: 32px;
+      bottom: 24px;
+      right: 32px;
       z-index: 10;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
       letter-spacing: 1px;
       display: flex;
       align-items: center;
     }
 
-    .page-indicator .separator { margin: 0 6px; color: rgba(255,255,255,0.25); }
-    .page-indicator .page-num { color: rgba(255,255,255,0.8); font-weight: 700; }
+    .page-indicator .separator {
+      margin: 0 6px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .page-indicator .page-num {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 700;
+    }
 
     @media (max-width: 768px) {
-      .team-grid { grid-template-columns: 1fr; }
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-heading {
+        font-size: 32px;
+      }
+
+      main.page {
+        padding: 80px 16px;
+      }
+
+      .menu-list a {
+        font-size: 32px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- ── NAVBAR ── -->
   <nav>
-    <a href="index.html" class="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
-        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
-      </svg>
-      <span class="nav-brand-text">Seventh.Lab</span>
+    <a href="/" class="nav-brand">
+      <img src="assets/images/logo.png" alt="Seventh.Lab" class="nav-logo-img">
     </a>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="service.html">Service</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="portfolio">Portfolio</a></li>
+      <li><a href="service">Service</a></li>
+      <li><a href="about">About Me</a></li>
+      <li><a href="contact">Contact</a></li>
     </ul>
 
     <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
@@ -362,8 +426,8 @@
         <div class="team-photo-wrapper">
           <div class="photo-accent"></div>
           <div class="team-photo">
-            <!-- Ganti dengan <img> saat foto tersedia -->
-            <span class="placeholder-icon">👤</span>
+            <img src="assets/images/VALSS.png" alt="Arrival Soedrajat"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;">
           </div>
         </div>
         <h3 class="team-name">Arrival Soedrajat/VALSS</h3>
@@ -378,8 +442,8 @@
         <div class="team-photo-wrapper">
           <div class="photo-accent"></div>
           <div class="team-photo">
-            <!-- Ganti dengan <img> saat foto tersedia -->
-            <span class="placeholder-icon">👤</span>
+            <img src="assets/images/IDOO.png" alt="Fauzi Ridho"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;">
           </div>
         </div>
         <h3 class="team-name">Fauzi Ridho/IDOO</h3>
@@ -395,22 +459,17 @@
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-close" id="menu-close">&times;</div>
     <ul class="menu-list">
-      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
-      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
-      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
-      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
-      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+      <li style="transition-delay: 0.1s;"><a href="/">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact">Contact</a></li>
     </ul>
     <div class="menu-sub-links">
-      <a href="team.html" style="color:#fff;">Our Team</a>
-      <a href="office.html">Office</a>
-      <a href="vision.html">Vision & Mission</a>
+      <a href="team" style="color:#fff;">Our Team</a>
+      <a href="office">Office</a>
+      <a href="vision">Vision & Mission</a>
     </div>
-  </div>
-
-  <!-- Page indicator -->
-  <div class="page-indicator" aria-label="Page 08">
-    Page<span class="separator">|</span><span class="page-num">08</span>
   </div>
 
   <script>
@@ -424,4 +483,5 @@
   </script>
 
 </body>
+
 </html>

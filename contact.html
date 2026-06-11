@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us – Seventh.Lab</title>
+  <link rel="icon" type="image/png" href="assets/images/logo1.png" />
   <meta name="description" content="Hubungi Seventh.Lab – konsultasi gratis untuk kebutuhan bisnis digital Anda." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -26,7 +31,8 @@
       --nav-height: 60px;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
@@ -37,32 +43,35 @@
     /* ── NAVBAR ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
-      background: rgba(10,10,10,0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
 
-    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+    }
 
-    .nav-brand-text {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-white);
-      letter-spacing: 0.3px;
+    .nav-brand:hover .nav-logo-img {
+      opacity: 0.85;
     }
 
     .nav-links {
@@ -76,7 +85,7 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       letter-spacing: 0.3px;
       transition: color 0.2s ease;
       position: relative;
@@ -85,17 +94,23 @@
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0; bottom: -3px;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
       background: var(--red);
       transition: width 0.25s ease;
     }
 
     .nav-links a:hover,
-    .nav-links a.active { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+    }
 
     .nav-links a.active::after,
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-hamburger {
       display: flex;
@@ -107,7 +122,8 @@
 
     .nav-hamburger span {
       display: block;
-      width: 22px; height: 2px;
+      width: 22px;
+      height: 2px;
       background: var(--red);
       border-radius: 2px;
       transition: transform 0.2s ease;
@@ -158,23 +174,19 @@
       position: absolute;
       inset: 0;
       background-image:
-        repeating-linear-gradient(
-          135deg,
+        repeating-linear-gradient(135deg,
           transparent 0px, transparent 48px,
-          rgba(255,255,255,0.015) 48px, rgba(255,255,255,0.015) 50px
-        ),
-        repeating-linear-gradient(
-          45deg,
+          rgba(255, 255, 255, 0.015) 48px, rgba(255, 255, 255, 0.015) 50px),
+        repeating-linear-gradient(45deg,
           transparent 0px, transparent 68px,
-          rgba(255,255,255,0.012) 68px, rgba(255,255,255,0.012) 70px
-        );
+          rgba(255, 255, 255, 0.012) 68px, rgba(255, 255, 255, 0.012) 70px);
     }
 
     .image-placeholder-label {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: rgba(255,255,255,0.12);
+      color: rgba(255, 255, 255, 0.12);
       pointer-events: none;
       user-select: none;
     }
@@ -207,9 +219,11 @@
     .contact-left::after {
       content: '';
       position: absolute;
-      top: 0; right: 0;
-      width: 80px; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(20,20,20,0.8));
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(20, 20, 20, 0.8));
       z-index: 4;
       pointer-events: none;
     }
@@ -227,8 +241,15 @@
     }
 
     @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(30px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .contact-heading {
@@ -263,14 +284,32 @@
       animation: fadeInUp 0.6s ease both;
     }
 
-    .contact-item:nth-child(1) { animation-delay: 0.05s; }
-    .contact-item:nth-child(2) { animation-delay: 0.12s; }
-    .contact-item:nth-child(3) { animation-delay: 0.19s; }
-    .contact-item:nth-child(4) { animation-delay: 0.26s; }
+    .contact-item:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .contact-item:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .contact-item:nth-child(3) {
+      animation-delay: 0.19s;
+    }
+
+    .contact-item:nth-child(4) {
+      animation-delay: 0.26s;
+    }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Red circle icon */
@@ -283,7 +322,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 12px rgba(224,0,0,0.3);
+      box-shadow: 0 0 12px rgba(224, 0, 0, 0.3);
     }
 
     .contact-icon svg {
@@ -320,11 +359,12 @@
     /* ── PAGE INDICATOR ── */
     .page-indicator {
       position: fixed;
-      bottom: 24px; right: 32px;
+      bottom: 24px;
+      right: 32px;
       z-index: 10;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
       letter-spacing: 1px;
       display: flex;
       align-items: center;
@@ -332,11 +372,11 @@
 
     .page-indicator .separator {
       margin: 0 6px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255, 255, 255, 0.25);
     }
 
     .page-indicator .page-num {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 700;
     }
 
@@ -414,7 +454,7 @@
     .menu-sub-links a {
       font-size: 14px;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -424,26 +464,66 @@
     .menu-sub-links a:hover {
       color: #fff;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .contact-left,
+      .contact-right {
+        width: 100%;
+        height: auto;
+      }
+
+      .page {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .contact-left {
+        height: 40vh;
+        flex-shrink: 0;
+      }
+
+      .contact-right {
+        padding: 32px 24px;
+      }
+
+      .contact-heading {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      .contact-info {
+        padding-bottom: 60px;
+      }
+
+      .menu-list a {
+        font-size: 32px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ── NAVBAR ── -->
   <nav>
-    <a href="index.html" class="nav-brand" id="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
-        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
-      </svg>
-      <span class="nav-brand-text">Seventh.Lab</span>
+    <a href="/" class="nav-brand" id="nav-brand">
+      <img src="assets/images/logo.png" alt="Seventh.Lab" class="nav-logo-img">
     </a>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="portfolio.html" id="nav-portfolio">Portfolio</a></li>
-      <li><a href="service.html" id="nav-service">Service</a></li>
-      <li><a href="about.html" id="nav-about">About Me</a></li>
-      <li><a href="contact.html" id="nav-contact" class="active">Contact</a></li>
+      <li><a href="/" id="nav-home">Home</a></li>
+      <li><a href="portfolio" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="service" id="nav-service">Service</a></li>
+      <li><a href="about" id="nav-about">About Me</a></li>
+      <li><a href="contact" id="nav-contact" class="active">Contact</a></li>
     </ul>
 
     <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu" role="button" tabindex="0">
@@ -465,10 +545,8 @@
              style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;" />
       -->
       <div class="contact-image-slot" id="contact-image-slot">
-        <div class="image-placeholder-label">
-          <span class="icon">🖼️</span>
-          <p>assets/images/contact.jpg</p>
-        </div>
+        <img src="assets/images/contact.png" alt="Contact Seventh.Lab"
+          style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;" />
       </div>
 
       <!-- Red accent bar (right side of image, matching screenshot) -->
@@ -487,7 +565,8 @@
           <div class="contact-icon" aria-hidden="true">
             <!-- phone icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/>
+              <path
+                d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z" />
             </svg>
           </div>
           <span class="contact-item-text">
@@ -500,11 +579,12 @@
           <div class="contact-icon" aria-hidden="true">
             <!-- globe icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 2a8 8 0 014.55 1.4L5.4 16.55A8 8 0 0112 4zm0 16a8 8 0 01-4.55-1.4L18.6 7.45A8 8 0 0112 20z"/>
+              <path
+                d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 2a8 8 0 014.55 1.4L5.4 16.55A8 8 0 0112 4zm0 16a8 8 0 01-4.55-1.4L18.6 7.45A8 8 0 0112 20z" />
             </svg>
           </div>
           <span class="contact-item-text">
-            <a href="https://www.nofather.my.id" target="_blank" rel="noopener">www.nofather.my.id</a>
+            <a href="https://www.seventhlab.site" target="_blank" rel="noopener">www.seventhlab.site</a>
           </span>
         </li>
 
@@ -513,11 +593,11 @@
           <div class="contact-icon" aria-hidden="true">
             <!-- mail icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
             </svg>
           </div>
           <span class="contact-item-text">
-            <a href="mailto:seventhlab@gmail.com">seventhlab@gmail.com</a>
+          <a href="mailto:seventhlabb@gmail.com">seventhlabb@gmail.com</a>
           </span>
         </li>
 
@@ -526,7 +606,8 @@
           <div class="contact-icon" aria-hidden="true">
             <!-- map pin icon -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
             </svg>
           </div>
           <span class="contact-item-text">Bandung, Jawa Barat</span>
@@ -540,25 +621,21 @@
     </div>
   </main>
 
-  <!-- Page indicator -->
-  <div class="page-indicator" id="page-indicator" aria-label="Page 09">
-    Page<span class="separator">|</span><span class="page-num">09</span>
-  </div>
 
   <!-- Menu Overlay -->
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-close" id="menu-close">&times;</div>
     <ul class="menu-list">
-      <li style="transition-delay: 0.1s;"><a href="index.html">Home</a></li>
-      <li style="transition-delay: 0.2s;"><a href="portfolio.html">Portfolio</a></li>
-      <li style="transition-delay: 0.3s;"><a href="service.html">Services</a></li>
-      <li style="transition-delay: 0.4s;"><a href="about.html">About Us</a></li>
-      <li style="transition-delay: 0.5s;"><a href="contact.html">Contact</a></li>
+      <li style="transition-delay: 0.1s;"><a href="/">Home</a></li>
+      <li style="transition-delay: 0.2s;"><a href="portfolio">Portfolio</a></li>
+      <li style="transition-delay: 0.3s;"><a href="service">Services</a></li>
+      <li style="transition-delay: 0.4s;"><a href="about">About Us</a></li>
+      <li style="transition-delay: 0.5s;"><a href="contact">Contact</a></li>
     </ul>
     <div class="menu-sub-links">
-      <a href="team.html">Our Team</a>
-      <a href="office.html">Office</a>
-      <a href="vision.html">Vision & Mission</a>
+      <a href="team">Our Team</a>
+      <a href="office">Office</a>
+      <a href="vision">Vision & Mission</a>
     </div>
   </div>
 
@@ -582,4 +659,5 @@
   </script>
 
 </body>
+
 </html>

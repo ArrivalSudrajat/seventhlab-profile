@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Vision – Seventh.Lab</title>
+  <link rel="icon" type="image/png" href="assets/images/logo1.png" />
   <meta name="description" content="Visi Seventh.Lab dalam menghadirkan solusi digital terbaik." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -25,7 +30,8 @@
       --nav-height: 60px;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
@@ -36,32 +42,35 @@
     /* ── NAVBAR ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
-      background: rgba(10,10,10,0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
 
-    .nav-logo-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+    }
 
-    .nav-brand-text {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-white);
-      letter-spacing: 0.3px;
+    .nav-brand:hover .nav-logo-img {
+      opacity: 0.85;
     }
 
     .nav-links {
@@ -75,7 +84,7 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       letter-spacing: 0.3px;
       transition: color 0.2s ease;
       position: relative;
@@ -84,17 +93,23 @@
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0; bottom: -3px;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
       background: var(--red);
       transition: width 0.25s ease;
     }
 
     .nav-links a:hover,
-    .nav-links a.active { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+    }
 
     .nav-links a.active::after,
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-hamburger {
       display: flex;
@@ -106,7 +121,8 @@
 
     .nav-hamburger span {
       display: block;
-      width: 22px; height: 2px;
+      width: 22px;
+      height: 2px;
       background: var(--red);
       border-radius: 2px;
       transition: transform 0.2s ease;
@@ -137,7 +153,8 @@
       overflow: hidden;
     }
 
-    .vision-img-top, .vision-img-bottom {
+    .vision-img-top,
+    .vision-img-bottom {
       flex: 1;
       background: #222;
       position: relative;
@@ -148,11 +165,20 @@
       animation: slideInLeft 0.8s ease both;
     }
 
-    .vision-img-bottom { animation-delay: 0.2s; }
+    .vision-img-bottom {
+      animation-delay: 0.2s;
+    }
 
     @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .placeholder-text {
@@ -161,7 +187,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.08);
+      color: rgba(255, 255, 255, 0.08);
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -192,8 +218,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .vision-heading {
@@ -236,7 +267,7 @@
       font-size: 13px;
       font-weight: 800;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(224,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.3);
     }
 
     .vision-text-col {
@@ -261,46 +292,173 @@
 
     /* ── MENU OVERLAY ── */
     .menu-overlay {
-      position: fixed; inset: 0; background: rgba(10, 10, 10, 0.98); z-index: 200;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.98);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     }
-    .menu-overlay.active { opacity: 1; visibility: visible; }
-    .menu-close { position: absolute; top: 24px; right: 32px; font-size: 32px; color: var(--red); cursor: pointer; font-weight: 300; }
-    .menu-list { list-style: none; text-align: center; }
-    .menu-list li { margin: 20px 0; overflow: hidden; }
-    .menu-list a { text-decoration: none; font-size: clamp(32px, 5vw, 56px); font-weight: 800; color: #fff; display: block; transition: transform 0.3s ease, color 0.3s ease; transform: translateY(100%); }
-    .menu-overlay.active .menu-list a { transform: translateY(0); }
-    .menu-list a:hover { color: var(--red); transform: skewX(-5deg) scale(1.05); }
-    .menu-sub-links { margin-top: 40px; display: flex; gap: 30px; opacity: 0; transition: opacity 0.5s ease 0.4s; }
-    .menu-overlay.active .menu-sub-links { opacity: 1; }
-    .menu-sub-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s ease; }
-    .menu-sub-links a:hover { color: #fff; }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 32px;
+      color: var(--red);
+      cursor: pointer;
+      font-weight: 300;
+    }
+
+    .menu-list {
+      list-style: none;
+      text-align: center;
+    }
+
+    .menu-list li {
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .menu-list a {
+      text-decoration: none;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      transition: transform 0.3s ease, color 0.3s ease;
+      transform: translateY(100%);
+    }
+
+    .menu-overlay.active .menu-list a {
+      transform: translateY(0);
+    }
+
+    .menu-list a:hover {
+      color: var(--red);
+      transform: skewX(-5deg) scale(1.05);
+    }
+
+    .menu-sub-links {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.4s;
+    }
+
+    .menu-overlay.active .menu-sub-links {
+      opacity: 1;
+    }
+
+    .menu-sub-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .menu-sub-links a:hover {
+      color: #fff;
+    }
 
     /* ── PAGE INDICATOR ── */
     .page-indicator {
-      position: fixed; bottom: 24px; right: 32px; z-index: 10; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 1px; display: flex; align-items: center;
+      position: fixed;
+      bottom: 24px;
+      right: 32px;
+      z-index: 10;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
     }
-    .page-indicator .separator { margin: 0 6px; color: rgba(255,255,255,0.25); }
-    .page-indicator .page-num { color: rgba(255,255,255,0.8); font-weight: 700; }
+
+    .page-indicator .separator {
+      margin: 0 6px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .page-indicator .page-num {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .vision-left,
+      .vision-right {
+        width: 100%;
+        height: auto;
+      }
+
+      .page {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .vision-left {
+        height: 40vh;
+        flex-direction: row;
+        flex-shrink: 0;
+      }
+
+      .vision-img-top,
+      .vision-img-bottom {
+        height: 100%;
+        width: 50%;
+      }
+
+      .vision-right {
+        padding: 32px 24px;
+      }
+
+      .vision-heading {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      .menu-list a {
+        font-size: 32px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <nav>
-    <a href="index.html" class="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="6,4 18,13 6,22 10,22 22,13 10,4" fill="#e00000"/>
-        <polygon points="6,12 14,17 6,22 10,22 18,17 10,12" fill="#9b0000"/>
-      </svg>
-      <span class="nav-brand-text">Seventh.Lab</span>
+    <a href="/" class="nav-brand">
+      <img src="assets/images/logo.png" alt="Seventh.Lab" class="nav-logo-img">
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="service.html">Service</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="portfolio">Portfolio</a></li>
+      <li><a href="service">Service</a></li>
+      <li><a href="about">About Me</a></li>
+      <li><a href="contact">Contact</a></li>
     </ul>
     <div class="nav-hamburger" id="nav-hamburger">
       <span></span><span></span><span></span>
@@ -309,8 +467,10 @@
 
   <main class="page">
     <div class="vision-left">
-      <div class="vision-img-top"><span class="placeholder-text">Vision Image 01</span></div>
-      <div class="vision-img-bottom"><span class="placeholder-text">Vision Image 02</span></div>
+      <div class="vision-img-top" style="padding: 0;"><img src="assets/images/vision1.png" alt="Vision Image 1"
+          style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+      <div class="vision-img-bottom" style="padding: 0;"><img src="assets/images/vision2.png" alt="Vision Image 2"
+          style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
     </div>
     <div class="vision-right">
       <h1 class="vision-heading">Our Vision</h1>
@@ -320,14 +480,16 @@
           <div class="vision-num">01</div>
           <div class="vision-text-col">
             <span class="vision-label">Vision</span>
-            <p class="vision-desc">Menjadi digital agency terpercaya yang membantu bisnis berkembang melalui solusi website yang modern, efektif, dan bernilai.</p>
+            <p class="vision-desc">Menjadi digital agency terpercaya yang membantu bisnis berkembang melalui solusi
+              website yang modern, efektif, dan bernilai.</p>
           </div>
         </div>
         <div class="vision-item">
           <div class="vision-num">02</div>
           <div class="vision-text-col">
             <span class="vision-label">Vision</span>
-            <p class="vision-desc">Membangun identitas digital bisnis yang kuat melalui teknologi, desain, dan strategi yang relevan.</p>
+            <p class="vision-desc">Membangun identitas digital bisnis yang kuat melalui teknologi, desain, dan strategi
+              yang relevan.</p>
           </div>
         </div>
       </div>
@@ -338,20 +500,19 @@
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-close" id="menu-close">&times;</div>
     <ul class="menu-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="service.html">Services</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="portfolio">Portfolio</a></li>
+      <li><a href="service">Services</a></li>
+      <li><a href="about">About Us</a></li>
+      <li><a href="contact">Contact</a></li>
     </ul>
     <div class="menu-sub-links">
-      <a href="team.html">Our Team</a>
-      <a href="office.html">Office</a>
-      <a href="vision.html" style="color:#fff;">Vision & Mission</a>
+      <a href="team">Our Team</a>
+      <a href="office">Office</a>
+      <a href="vision" style="color:#fff;">Vision & Mission</a>
     </div>
   </div>
 
-  <div class="page-indicator">Page<span class="separator">|</span><span class="page-num">05</span></div>
 
   <script>
     const hamburger = document.getElementById('nav-hamburger');
@@ -362,4 +523,5 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') menuOverlay.classList.remove('active'); });
   </script>
 </body>
+
 </html>
